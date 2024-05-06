@@ -1,1 +1,0 @@
-Small practice project used to see hashing in action. Contains two functions hash file and hash password. Hash file takes a file input, reads through and generates a hash in a user chosen algorithm. Hash passwords takes a user input and returns a hash of that password.
