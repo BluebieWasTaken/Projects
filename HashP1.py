@@ -1,7 +1,7 @@
 import hashlib
 import bcrypt
 
-""" Function that reads in the file and provide a hash in the requested algorithm"""
+# Function that reads in the file and provide a hash in the requested algorithm
 def hash_txt(alg, file):
     with open(file, "rb") as f:
         if alg == "MD5":
@@ -21,14 +21,13 @@ def hash_txt(alg, file):
             digest.update(chunk)
     return digest.hexdigest()
 
-"""Generates a salt and hashes the password with the salt. The strength of the salt is based on the how many times the user wants but requires
-    more computional power the higher the amount of times"""
+# Generates a salt and hashes the password with the salt. The strength of the salt is based on the how many times the user wants but requires more computional power the higher the amount of times
 def hash_pass(pwd, times):
     salt = bcrypt.gensalt(times)
     hpw = bcrypt.hashpw(pwd.encode('utf-8'), salt)
     return hpw
 
-"""Asks user for whether they like to hash file or hash pass. Takes user input and prints output"""
+# Asks user for whether they like to hash file or hash pass. Takes user input and prints output
 if __name__ == "__main__":
     choice = input("1. Hashing File\n2. Hashing Passwords\nChoose your option (Accepts numbers, option, short hand i.e 1, Hashing File, HF): ")
     if choice == "1" or choice.lower() == "hashing file" or choice.lower() == "hf":
